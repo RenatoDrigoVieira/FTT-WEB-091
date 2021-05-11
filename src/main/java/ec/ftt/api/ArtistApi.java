@@ -98,7 +98,7 @@ public class ArtistApi extends HttpServlet {
 		
 		artistDao.delete(a);
 		
-		response.getWriter().append(request.getParameter("id") + " Artist removed");
+		
 	}
 	
 	protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
@@ -108,12 +108,11 @@ public class ArtistApi extends HttpServlet {
 	  }
 	
 	 private void setAccessControlHeaders(HttpServletResponse resp) {
+		 System.out.println("Teste");
 	      resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-	      resp.setHeader("Access-Control-Allow-Methods", "GET");
-	      resp.setHeader("Access-Control-Allow-Methods", "POST");
-	      resp.setHeader("Access-Control-Allow-Methods", "PUT");
-	      resp.setHeader("Access-Control-Allow-Methods", "DELETE");
-	      resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+	      resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+	      resp.setHeader("Access-Control-Allow-Credentials", "true");
+	      resp.setHeader("Access-Control-Allow-Headers", "Content-Type, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version, X-File-Name");
 	  }
 
 }

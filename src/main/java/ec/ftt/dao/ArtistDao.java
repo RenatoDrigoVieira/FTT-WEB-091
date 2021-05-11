@@ -46,8 +46,8 @@ public class ArtistDao implements Dao<Artist> {
 		try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("UPDATE ftt.artists SET NAME=?, " 
-                    		                           + "UF=?, "
-                                                + "WHERE ID=?");
+                    		                           + "UF=? "
+                                                + "WHERE ID=? ");
 
             preparedStatement.setString(1, artist.getName());
             preparedStatement.setString(2, artist.getUf());

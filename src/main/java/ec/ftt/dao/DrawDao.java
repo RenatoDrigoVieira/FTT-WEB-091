@@ -48,17 +48,16 @@ public class DrawDao implements Dao<Draw> {
 		
 		try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("UPDATE ftt.draws SET ARTISTID=?, " 
-                    		                           + "TITLE=?, "
+                    .prepareStatement("UPDATE ftt.draws SET TITLE=?, " 
                     		                           + "IMG=?, "
-                    		                           + "DESCRIP=?, "
+                    		                           + "DESCRIP=? "
                                                 + "WHERE ID=?");
 
-            preparedStatement.setInt(1, draw.getArtistId());
-            preparedStatement.setString(2, draw.getTitle());
-            preparedStatement.setString(3, draw.getImg());
-            preparedStatement.setString(4, draw.getDesc());
-            preparedStatement.setInt(5, draw.getId());
+           
+            preparedStatement.setString(1, draw.getTitle());
+            preparedStatement.setString(2, draw.getImg());
+            preparedStatement.setString(3, draw.getDesc());
+            preparedStatement.setInt(4, draw.getId());
             
             preparedStatement.executeUpdate();
 
